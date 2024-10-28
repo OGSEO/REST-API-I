@@ -33,8 +33,10 @@ public class StudentController {
 
     // {id} - URI template variable
 
-    @GetMapping("students/{id}")
-    public Student getStudentById(@PathVariable("id") int studentId) {
-        return new Student(studentId, "Ollie", "Gelton");
+    @GetMapping("students/{id}/{first-name}/{last-name}")
+    public Student getStudentById(@PathVariable("id") int studentId,
+                                  @PathVariable("first-name") String firstName,
+                                  @PathVariable("last-name") String lastName) {
+        return new Student(studentId, firstName, lastName);
     }
 }
